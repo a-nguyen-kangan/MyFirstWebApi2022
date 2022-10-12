@@ -28,10 +28,12 @@ int SubtractTwoIntegers(int num1, int num2) {
     return num1 - num2; 
 }
 
+// Counts total number of characters given two words
 int TotalCharCount(string word1, string word2) {
     return word1.Length + word2.Length;
 }
 
+// Counts occurences of a character in word
 int CharMatchCount(char character, string word) {
     int matches = 0;
     foreach(char c in word) {
