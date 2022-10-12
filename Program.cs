@@ -11,6 +11,9 @@ app.MapGet("/add/{input1}/{input2}", (int input1, int input2) => AddTwoIntegers(
 
 app.MapGet("/sub/{input1}/{input2}", (int input1, int input2) => SubtractTwoIntegers(input1, input2));
 
+app.MapGet("/charcount/{word1}/{word2}", (string word1, string word2) => TotalCharCount(word1, word2));
+
+app.MapGet("/matchchar/{character}/{word}", (char character, string word) => CharMatchCount(character, word));
 
 app.Run();
 
@@ -23,4 +26,19 @@ int AddTwoIntegers(int num1, int num2) {
 // function to add two integers together
 int SubtractTwoIntegers(int num1, int num2) {
     return num1 - num2; 
+}
+
+int TotalCharCount(string word1, string word2) {
+    return word1.Length + word2.Length;
+}
+
+int CharMatchCount(char character, string word) {
+    int matches = 0;
+    foreach(char c in word) {
+        if (character == c) {
+            matches++;
+        }
+    }
+
+    return matches;
 }
